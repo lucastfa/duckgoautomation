@@ -5,7 +5,9 @@
  "main": "index.js",
  "scripts": {
   "build": "babel src -d lib",
-  "test:browser": "wdio wdio.conf.js",
+  "test:browser": "wdio wdio.all.conf.js",
+  "test:browser:chrome": "wdio wdio.chrome.conf.js",
+  "test:browser:firefox": "wdio wdio.firefox.conf.js",
   "test:api": "mocha --require @babel/register --recursive test/api"
  },
  "repository": {
