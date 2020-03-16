@@ -1,6 +1,6 @@
 class HomePage {
-    get thirdPanelTitle() {
-        return $('.js-onboarding-ed-slide-3 .onboarding-ed__title');
+    get sloganText() {
+        return $('.tag-home__item');
     }
 
     get hamburgerMenuIcon() {
@@ -15,6 +15,14 @@ class HomePage {
         return $("#search_button_homepage");
     }
 
+    get autoCompleteContainer() {
+        return $(".search__autocomplete");
+    }
+
+    get autoCompleteSuggestions() {
+        return this.autoCompleteContainer.$$(".acp");
+    }
+
     open() {
         browser.url('/');
     }
@@ -24,9 +32,13 @@ class HomePage {
         this.hamburgerMenuIcon.click();
     }
 
-    search(keyword) {
+    typeInSearchBox(keyword) {
         this.searchInput.waitForDisplayed();
         this.searchInput.setValue(keyword);
+    }
+
+    search(keyword) {
+        this.typeInSearchBox(keyword);
         this.searchButton.click();
     }
 }

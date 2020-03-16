@@ -3,7 +3,7 @@ import hamburgerMenuSection from '../pageobjects/hamburgerMenu.section';
 import searchResultsPage from '../pageobjects/searchResults.page';
 import settingsPage from '../pageobjects/settings.page';
 
-describe('Duck duck website', () => {
+describe('Duck duck go search website', () => {
 
     const searchKeyword = "webdriver.io";
 
@@ -12,7 +12,7 @@ describe('Duck duck website', () => {
     });
 
     it('should have the slogan', () => {
-        expect(homePage.thirdPanelTitle.getText()).toBe("We don’t track you in or out\nof private browsing mode.");
+        expect(homePage.sloganText.getText()).toContain("The search engine that doesn't track you.");
     });
 
     it('should have correct title in the hamburger menu', () => {
@@ -29,11 +29,11 @@ describe('Duck duck website', () => {
         expect(searchResultsPage.resultsContainer.getText()).toContain("rouseservices.com");
     });
 
-    it('should have the correct placeholder', () => {
-        homePage.search(searchKeyword);
-        searchResultsPage.searchInput.waitForDisplayed();
-        
-        expect(searchResultsPage.searchInput.getValue()).toBe(searchKeyword);
+    it('should have autocomplete suggestions', () => {
+        homePage.typeInSearchBox("chromedriver");
+        homePage.autoCompleteContainer.waitForDisplayed();
+
+        expect(homePage.autoCompleteSuggestions.length).toBe(8);
     });
 
     it('should change infinite scrolling option', () => {
