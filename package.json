@@ -31,7 +31,7 @@
   "@wdio/selenium-standalone-service": "^5.16.10",
   "@wdio/spec-reporter": "^5.18.7",
   "@wdio/sync": "^5.20.1",
-  "axios": "^0.19.2",
+  "axios": "^0.21.1",
   "chromedriver": "^80.0.1",
   "jest-matchers": "^20.0.3",
   "mocha": "^7.1.0",
